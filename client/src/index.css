@@ -1,0 +1,69 @@
+body {
+ 
+  box-sizing: border-box;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url(https://courseweb.sliit.lk/theme/image.php/lambda/theme/1629135847/page_bg/page_bg_blur02) no-repeat fixed 0 0;
+  background-size: cover;
+    position: relative;
+    text-shadow: none!important;
+    color: #555;
+    padding-top: 35px;
+    
+}
+
+hr{ 
+  display: block;
+  margin-top: -1em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+ 
+  border-width: 7px;
+border-color:#E2A500;
+} 
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+ .App{
+  max-width: 1225px;
+  width: 100%;
+  min-height: 100vh;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: auto;
+  overflow: hidden;
+  padding: 15px;
+
+  
+  
+  
+} 
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+
+}
+button{
+border: none ;
+outline: none;
+cursor: pointer;
+}
+/*--------------------------------------header--------------------------*/
+
+@import url("./components/header/header.css");
+
+
+/*--------------------------------------auth--------------------------*/
+@import url("./components/body/auth/auth.css");
+
+/*--------------------------------------Profile--------------------------*/
+@import url("./components/body/profile/profile.css");
