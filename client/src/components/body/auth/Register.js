@@ -29,16 +29,19 @@ function Register() {
   
     const {name, email, password, cf_password, role, job, err, success} = user
 
-
+  
 
     const handeInputChange = (e) => {
         const {name, value} = e.target
         setUser({...user, [name]:value, err:'', success:''})
+        
     }
 
     const handleSubmit = async e => {
         e.preventDefault()
-       
+       const role = document.querySelector('input[name="role"]:checked').value;
+
+        console.log(role)
             if(isEmpty(name) || isEmpty(password) || isEmpty(role) || isEmpty(job)) 
             return setUser({...user, err:"Please fill all fields", success:''})
 
@@ -52,7 +55,6 @@ function Register() {
             return setUser({...user, err:"Passwords are not matched", success:''})
 
             
-
             if(!isRole(role) )
             return setUser({...user, err:"Select a valid role", success:''})
 
@@ -102,23 +104,21 @@ function Register() {
 
             
         
-            <div>
-                <label htmlFor="role">Job Role</label>
-                <input type="number" placeholder="Enter Your Job Role" id="role"
-                value={role} name="role" onChange={handeInputChange}/>
+            <div className='nice2'> 
+                <label htmlFor="role">Job Role</label><br/>
                 
-                <em style={{fontSize:"12px",color:"crimson"}}>*Input 0 if you are a Staff Member</em> <br/>
-            <em style={{fontSize:"12px",color:"crimson"}}>*Input 2 if you are a Supervisor</em>  <br/>
-            <em style={{fontSize:"12px", color:"crimson"}}>*Input 3 if you are a Co-Supervisor</em>
+
+            <input type="radio" id="role1" name="role" value="0"/>
+            <label  for="role1">Staff Member</label>
+             <input type="radio" id="role2" name="role" value="2"/>
+             <label  for="role2">Supervisor</label>
+           <input type="radio" id="role3" name="role" value="3"/>
+           <label  for="role3">Co-Supervisor</label>
+           
             
             </div>
 
 
-            
-
-           
-            
-            
            
 
             <div>
