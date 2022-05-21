@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const fileUpload = require('express-fileUpload')
-var  assignmentMolel = require('./models/assignmentModel')
+
 
 const app = express()
 app.use(express.json())
@@ -14,10 +14,18 @@ app.use(fileUpload({
     useTempFiles:true
 }))
 
+
+
 //rotes
 app.use('/user', require('./routes/userRoutes'))
 app.use('/api', require('./routes/upload'))
 app.use('/file', require('./routes/uploadFiles'))
+
+
+
+
+
+
 
 //mongo db connection
 const URI = process.env.MONGODB_URL

@@ -7,7 +7,7 @@ import {showErrMsg, showSuccessMsg} from '../../utils/notification/Notification'
 import { use } from 'express/lib/application'
 
 import {fetchAllUsers, dispatchGetAllUsers} from '../../../redux/actions/usersActions'
-
+import Swal from 'sweetalert2'
 
 
 
@@ -102,6 +102,17 @@ function Profile() {
       }) 
 
       setData({...data, err:'', success:"Update Success" })
+
+     
+Swal.fire({
+  position: 'top-start',
+  icon: 'success',
+  title: 'Your work has been saved',
+  showConfirmButton: false,
+  timer: 1500
+})
+      
+      
 
     }catch(err){
         setData({...data, err: err.response.data.message, success: ''})
