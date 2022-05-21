@@ -16,6 +16,17 @@ import PanelEdit from '../body/panel/PanelEdit'
 import Panelexp from '../body/panel/Panelexp'
 
 
+import CreateAssignment from '../assignment/CreateAssignment'
+import GetAllAssignements from '../assignment/GetAllAssignments'
+import EditAssignment from '../assignment/EditAssignment'
+
+import CreateMarking from '../markings/CreateMarking'
+import GetMarkings from '../markings/GetMarkings'
+
+import CreateDownloads from '../downloads/CreateDownloads'
+import GetDownloads from '../downloads/GetDownloads'
+
+
 import {useSelector} from 'react-redux'
 
 export default function Body() {
@@ -44,6 +55,17 @@ const {isLogged, isAdmin, isSuper,isCoSuper, isPanel} = auth
             <Route path='/panelexp' component={isAdmin ? Panelexp : NotFound} exact/>
 
             <Route path='/panel_edit/:id' component={isAdmin ? PanelEdit : NotFound} exact/>
+
+
+            <Route path='/createassi' component={isAdmin ? CreateAssignment : NotFound} exact/>
+            <Route path='/getallassi' component={isAdmin ? GetAllAssignements : NotFound} exact/>
+            <Route path='/editassi/:id' component={isAdmin ? EditAssignment : NotFound} exact/>
+
+            <Route path='/createmarking' component={isAdmin ? CreateMarking : NotFound} exact/>
+            <Route path='/getmarkings' component={isAdmin ? GetMarkings : NotFound} exact/>
+
+            <Route path='/createdownloads' component={isAdmin ? CreateDownloads : NotFound} exact/>
+            <Route path='/getdownloads' component={isAdmin ? GetDownloads : NotFound} exact/>
 
 
            
