@@ -43,6 +43,12 @@ function Register() {
        
 
             if(isEmpty(name) || isEmpty(password) || isEmpty(job)) 
+
+       const role = document.querySelector('input[name="role"]:checked').value;
+
+        console.log(role)
+            if(isEmpty(name) || isEmpty(password) || isEmpty(role) || isEmpty(job)) 
+
             return setUser({...user, err:"Please fill all fields", success:''})
 
             if(!isEmail(email) ) 
@@ -55,6 +61,11 @@ function Register() {
             return setUser({...user, err:"Passwords are not matched", success:''})
 
             
+
+
+            if(!isRole(role) )
+            return setUser({...user, err:"Select a valid role", success:''})
+
 
 
 
