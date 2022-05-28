@@ -14,7 +14,9 @@ body {
     color: #555;
     padding-top: 35px;
     
+    
 }
+
 
 hr{ 
   display: block;
@@ -57,6 +59,11 @@ border: none ;
 outline: none;
 cursor: pointer;
 }
+
+
+
+
+
 /*--------------------------------------header--------------------------*/
 
 @import url("./components/header/header.css");

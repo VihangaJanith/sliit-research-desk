@@ -8,13 +8,13 @@ import {Button} from 'react-bootstrap'
 
 
 
-const GetAllAssignments = () => {
+const GetAllUploads = () => {
 const [crs, setCrs] = useState();
 const [users, setUsers] = useState();
 
 useEffect(() => {
    const fetchUsersCr = async () => {
- const res = await fetch('http://localhost:8000/ass');
+ const res = await fetch('http://localhost:8000/studentup');
    const data = await res.json();
    console.log(data);
    setCrs(data);
@@ -29,7 +29,7 @@ useEffect(() => {
 
 const handleDelete = async(id) => {
   try{
-    const res = await fetch(`http://localhost:8000/ass/${id}`, {
+    const res = await fetch(`http://localhost:8000/studentup/${id}`, {
     method : 'DELETE'
   })
   if(res.ok){
@@ -52,7 +52,7 @@ const handleDelete = async(id) => {
   return (
     <div >
       
-<h1>All Assignments By admin </h1>
+<h1>All Assignments submissions </h1>
       
          {crs?.map((cr , index) => (
             
@@ -65,7 +65,6 @@ const handleDelete = async(id) => {
                    
                     
                    <h2 scope="row"> {cr.name} </h2> 
-                   {cr.userid}
                   
                    <CloudinaryContext cloudName="demo">
                      
@@ -80,14 +79,11 @@ const handleDelete = async(id) => {
                        </CloudinaryContext>
                         <a  className="col-md-9 card me-3 mt-2 p-1" style={{textDecoration: 'none', color:'crimson'}}>Assignment ID : {cr.aid}</a> 
 
-                       <a style={{textDecoration: 'none', color:'crimson'}}>Deadline : {cr.deadline}</a>
-
-                       <p>Created By : {cr.author}</p>
-                      
-                      
+                      {cr.userid}
+{/*                       
                        <Button variant="success">
                         <a href={`/editassi/${cr._id}`}  style={{textDecoration: 'none', color:'white'}} > Edit  </a>
-                         </Button>{' '}
+                         </Button>{' '} */}
 
                          <button className="btn btn-danger" onClick={()=>{handleDelete(cr._id)}}>Delete Assignment</button>
 
@@ -116,4 +112,4 @@ const handleDelete = async(id) => {
   )
 }
 
-export default GetAllAssignments
+export default GetAllUploads

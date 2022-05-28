@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const assignmentAdminSchema = new mongoose.Schema({
+const studentUploadSchema = new mongoose.Schema({
     name: {
         type: String
 
@@ -9,29 +9,15 @@ const assignmentAdminSchema = new mongoose.Schema({
     userid: {
         type: String,
         default: "01"
-
     },
-
     aid: {
         type: String,
         default: "01"
     },
-    description: {
+    comments: {
         type: String,
-        default: "No Description"
-    },
-    rules: {
-        type: String,
-        default: "No Rules"
-    },
-    deadline: {
-        type: String,
-        default: "No Deadline"
-    },
-    author: {
-        type: String,
-        default: "admin"
-    },
+        default: "No Comments"
+    },   
     file:{
         type:String,
         default: "https://res.cloudinary.com/vihanga/image/upload/v1649010992/avatar/149071_jersfv.png"
@@ -43,4 +29,4 @@ const assignmentAdminSchema = new mongoose.Schema({
 {
       timestamps: true
 });
-module.exports = mongoose.model('assignmentAdmin', assignmentAdminSchema);
+module.exports = mongoose.model('studentAssignments', studentUploadSchema);
