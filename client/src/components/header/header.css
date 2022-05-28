@@ -10,7 +10,7 @@ header{
     flex-wrap: wrap;
     padding: 0 30px;
     text-decoration: none;
-    border-radius: 5px;
+    
     
    
 
@@ -48,6 +48,7 @@ header h1{
     color: white;
     letter-spacing: 1.5px;
 }
+
 /*dropdown*/
 
 .drop-nav{
@@ -70,14 +71,62 @@ header h1{
 
 .drop-nav .dropdown{
     position: absolute;
-    background : #3A454B;
+    background : gray;
     width: 100%;
     width: calc(100% + 10px);
     display: none;
     margin-left: -70px;
+    border-radius: 15px; 
 
 }
 
 .drop-nav:hover .dropdown{
     display: block;
 }
+
+
+/*dropdown2*/
+
+.drop-nav2{
+    position: relative;
+    
+    
+}
+
+.drop-nav2 a{
+    text-transform: capitalize;
+    overflow: hidden;
+    
+    
+
+}
+.drop-nav-link2{
+    padding-top: 30px;  
+   
+    font-size: 20px;
+    
+}
+
+.drop-nav2 .dropdown2{
+   
+    position: absolute;
+    background : gray;
+    width: 100%;
+    width: calc(100% );
+    display: none;
+    margin-left: -40px;
+    border-radius: 15px; 
+
+}
+
+.drop-nav2:hover .dropdown2{
+    display: grid;
+
+}
+
+
+
+
+
+
+

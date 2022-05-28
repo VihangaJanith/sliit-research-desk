@@ -32,6 +32,12 @@ app.use('/ass', require('./routes/assignmentAdmin'));
 app.use('/marking', require('./routes/markingRoute'));
 app.use('/down', require('./routes/downloadRoute'));
 
+app.use('/test', require('./routes/testUsers'));
+
+app.use('/studentup', require('./routes/studentUploadRoute'));
+
+app.use('/assignedgroups', require('./routes/assignGrupsRoute'));
+
 
 
 app.listen(8000, () => console.log('Server is running on port 8000'))

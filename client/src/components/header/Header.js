@@ -11,7 +11,7 @@ Header() {
   const auth = useSelector(state => state.auth)
   console.log(auth)
 
-  const {user, isLogged} = auth
+  const {user, isLogged, isAdmin, isPanel} = auth
 
   const handleLogout = async () => {
       try{
@@ -90,6 +90,83 @@ Header() {
   </li>
   
   }
+
+
+  const adminlink = () => {
+    return  <li className="drop-nav2">
+      <Link to="#"className="drop-nav-link2" style={{ color: 'white', textDecoration: 'inherit'}}>
+      Admin Options
+      &nbsp;
+      <i class="fas fa-angle-down"></i>
+        
+      </Link>
+  
+      
+      
+      <ul className="dropdown2 mt-2">
+    
+        <li><Link to="/panel"style={{ color: 'white', textDecoration: 'inherit'}}>Panel Selection</Link> </li>
+        <hr style={{
+        display: "inherit",
+        marginTop: "inherit",
+        marginBottom: "inherit",
+        marginLeft: "inherit",
+        marginRight: "inherit",
+       
+        borderWidth: "inherit",
+        borderColor: "inherit",
+        color: "inherit",
+            backgroundColor: "white",
+            height: 2
+        }}/>
+       
+       <li><Link to="/panelexp"style={{ color: 'white', textDecoration: 'inherit'}}>Asign Groups </Link> </li>
+  
+      </ul>
+    </li>
+    
+    }
+
+
+
+    const panellink = () => {
+      return  <li className="drop-nav2">
+        <Link to="#"className="drop-nav-link2" style={{ color: 'white', textDecoration: 'inherit'}}>
+        Panel Options
+        &nbsp;
+        <i class="fas fa-angle-down"></i>
+          
+        </Link>
+    
+        
+        
+        <ul className="dropdown2 mt-2">
+      
+          <li><Link to={`/AssignedtoMe/${user._id}`} style={{ color: 'white', textDecoration: 'inherit'}}>Groups Assigned to me</Link> </li>
+          <hr style={{
+          display: "inherit",
+          marginTop: "inherit",
+          marginBottom: "inherit",
+          marginLeft: "inherit",
+          marginRight: "inherit",
+         
+          borderWidth: "inherit",
+          borderColor: "inherit",
+          color: "inherit",
+              backgroundColor: "white",
+              height: 2
+          }}/>
+         
+         <li><Link to="#"style={{ color: 'white', textDecoration: 'inherit'}}>Asign Groups </Link> </li>
+    
+        </ul>
+      </li>
+      
+      }
+
+
+
+
 const transForm ={
   transform: isLogged ? "translateY(-5px)" : 0 
 }
@@ -114,8 +191,15 @@ const transForm ={
 </div>
 
 <ul style={transForm} >
+
+
   
-   
+{isPanel ?
+     panellink() : 
+     ''}
+  
+   {isAdmin ? 
+   adminlink() : ''}
 
     {
     isLogged 
@@ -125,15 +209,17 @@ const transForm ={
      
      }
 
+
+
     
 </ul>
 
 
 </header>
 
-{/* <div>
+<div>
 
-<Navbar sticky="true" bg="dark" expand="lg" >
+{/* <Navbar sticky="true" bg="dark" expand="lg" >
   <Container>
     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -154,8 +240,8 @@ const transForm ={
       </Nav>
     </Navbar.Collapse>
   </Container>
-</Navbar>
-</div> */}
+</Navbar> */}
+</div> 
 
 
 

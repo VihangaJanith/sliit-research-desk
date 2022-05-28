@@ -14,17 +14,30 @@ import Super from '../Super'
 import Panel from '../body/panel/Panel'
 import PanelEdit from '../body/panel/PanelEdit'
 import Panelexp from '../body/panel/Panelexp'
-
+import CreateGroupAssign from './panel/CreateGroupAssign'
+import GetAllAssignedGrups from './panel/GetAllAssignedGrups'
+import AssignedtoMe from './panel/AssignedtoMe'
 
 import CreateAssignment from '../assignment/CreateAssignment'
 import GetAllAssignements from '../assignment/GetAllAssignments'
 import EditAssignment from '../assignment/EditAssignment'
+import UserCreatedAssignment from '../assignment/UserCreatedAssignment'
 
 import CreateMarking from '../markings/CreateMarking'
 import GetMarkings from '../markings/GetMarkings'
 
 import CreateDownloads from '../downloads/CreateDownloads'
 import GetDownloads from '../downloads/GetDownloads'
+
+
+import TestUsers from './TestUsers'
+
+import Footer from "../header/Footer"
+
+
+import CreateUploads from '../studentUploads/CreateUploads'
+import GetAllUploads from '../studentUploads/GetAllUploads'
+import UserUploads from '../studentUploads/userUploads'
 
 
 import {useSelector} from 'react-redux'
@@ -53,6 +66,11 @@ const {isLogged, isAdmin, isSuper,isCoSuper, isPanel} = auth
             <Route path='/super' component={isSuper || isAdmin || isCoSuper ? Super : NotFound} exact/>
             <Route path='/panel' component={isAdmin ? Panel : NotFound} exact/>
             <Route path='/panelexp' component={isAdmin ? Panelexp : NotFound} exact/>
+            <Route path='/CreateGroupAssign/:id?/:name?' component={isAdmin ? CreateGroupAssign : NotFound} exact/>
+            <Route path='/GetAllAssignedGrups' component={isAdmin ? GetAllAssignedGrups : NotFound} exact/>
+            <Route path='/AssignedtoMe/:id' component={isPanel ? AssignedtoMe : NotFound} exact/>
+
+           
 
             <Route path='/panel_edit/:id' component={isAdmin ? PanelEdit : NotFound} exact/>
 
@@ -60,6 +78,7 @@ const {isLogged, isAdmin, isSuper,isCoSuper, isPanel} = auth
             <Route path='/createassi' component={isAdmin ? CreateAssignment : NotFound} exact/>
             <Route path='/getallassi' component={isAdmin ? GetAllAssignements : NotFound} exact/>
             <Route path='/editassi/:id' component={isAdmin ? EditAssignment : NotFound} exact/>
+            <Route path='/usercreated/:id' component={isAdmin ? UserCreatedAssignment : NotFound} exact/>
 
             <Route path='/createmarking' component={isAdmin ? CreateMarking : NotFound} exact/>
             <Route path='/getmarkings' component={isAdmin ? GetMarkings : NotFound} exact/>
@@ -68,15 +87,24 @@ const {isLogged, isAdmin, isSuper,isCoSuper, isPanel} = auth
             <Route path='/getdownloads' component={isAdmin ? GetDownloads : NotFound} exact/>
 
 
+            <Route path='/testusers' component={isAdmin ? TestUsers : NotFound} exact/>
+
+
+            <Route path='/createuploads' component={ CreateUploads} exact/>
+            <Route path='/getuploads' component={GetAllUploads} exact/>
+            <Route path='/useruploadedAssi/:id' component={UserUploads} exact/>
+
            
             
              
         </Switch>
 
 
-
+        <Footer />
 
     </section>
+
+   
   
   )
 }
