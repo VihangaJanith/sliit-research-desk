@@ -18,7 +18,7 @@ const stdCtrl = {
             studentNumber,name, email, password:passwordHash
         }
         const activetocken = createActivationToken(newStudent);
-        const url=`${"http://localhost:3000"}/user/active/${activetocken}`
+        const url=`${"http://localhost:3000"}/student/active/${activetocken}`
         console.log(activetocken)
         sendactivemail(email,url);
               res.json({msg:"Reg test"})
