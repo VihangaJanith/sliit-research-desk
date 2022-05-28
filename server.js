@@ -27,6 +27,7 @@ app.use('/student', require('./routes/studentRoute'))
 
 
 
+
 //mongo db connection
 const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {

@@ -72,76 +72,83 @@ function Panelexp() {
               
 
               <div style={{overflowX:"auto"}} className="user-list">
-              <table className="customers">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    
-                    <th>role</th>
-                   
-                   
-
-                  </tr>
-                </thead>
+             
+                
                 
                   {
-                    users.map(user => (
+                    users.map(user  => (
                       
-                      <tr key={user._id}>
+                      <div >
+                        
+                        
 
-                          { user.role === 2 ?
-                          <div>
+                          { user.roledesc === 1 ?
+
+
+
+
+
+
+
+                          <div className="col-md-8 card me-3 mt-1 mb-3 p-2" key={user.id}>
+
+            
+                            
+                            <div className="col">
+                            
+
+
+                        <h3 scope="row">
+                        
+                           {user.name} </h3> 
                               
-                           <td>{user._id}</td>
+                            <p scope="row"> {user._id} </p> 
                            
-                          <td>{user.name}</td>
-                          <td>{user.email}</td>
-                          <td>{user.role}</td>
-                          <td>{
-                              user.role === 1
-                              ? <p style={{color: 'Red', fontSize: '20px' , fontWeight: 'bold'}}>Admin</p> : ""
-                             }
-                             {
-                              user.role === 2
-                              ? <p  style={{color: 'Blue', fontSize: '20px' , fontWeight: 'bold'}}>Supervisor</p> : ""
-                             }
-                             {
-                              user.role === 0
-                              ? <p style={{color: 'green', fontSize: '20px' , fontWeight: 'bold'}}>Staff Member</p> : ""
-                             }
-                             {
-                              user.role === 3
-                              ?  <p style={{color: 'orange', fontSize: '20px' , fontWeight: 'bold'}}>Co-Supervisor</p> : ""
-                             
-                             
-                             }
-                            </td>
-                            <td>
-                            <Link to={`/panel_edit/${user._id}`}>
-                              <i className="fa fa-edit" title="Edit"></i>
+                        
+                          <p scope="row"> Email : {user.email}</p>
+                          
+                          <div className="row">
+                          <Link   to={`/panel_edit/${user._id}`}>
+                            <button className="btn btn-warning">                          
+                            Remove from Panel
+                            </button>
                             </Link>
-                            </td>
+                          </div>
+
+                          <div  className="row mt-2">
+                            
+                            <Link   to={`/CreateGroupAssign/${user._id}/${user.name}`}>
+                            <button className="btn btn-warning">                          
+                           Assign Student Groups
+                            </button>
+                            </Link>
+                            </div>
+                            </div>
+
+
+                            <div className="col">
+             <div  style={{marginTop:"-190px"}}  className="col-left">
+              
+
+               <div className="avatar">
+                  <img src={avatar ? avatar: user.avatar} alt="" />
+                  
+                     
+               </div>
+               </div>
+               </div>
+
                            </div>
                             : ""
                         }
-                       
-                       
-                           
-                         
-                         
-                          
-      
-                        
-                        </tr>
+                                </div>
                     ))
                   }
                   
                    
                   
                 
-              </table> 
+           
 
               </div>
 

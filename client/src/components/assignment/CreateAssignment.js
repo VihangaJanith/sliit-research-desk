@@ -10,8 +10,11 @@ const CreateAssignment = () => {
 
   const {user, isLogged} = auth
 
+  console.log(user._id)
+
     const [crs, setData] = useState({
         name: '',
+        userid: user._id,
         aid: '',
         description: '',
         rules: '',
@@ -29,7 +32,8 @@ const CreateAssignment = () => {
         try{
             let formData = new FormData();
             formData.append('image', crs.image);
-
+            
+            formData.append('userid', user._id);
             formData.append('name', crs.name);
             formData.append('aid', crs.aid);
             formData.append('description', crs.description);

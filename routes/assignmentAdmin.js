@@ -13,6 +13,7 @@ router.post("/", upload.single('image'), async (req, res) => {
             
         name: req.body.name,
         aid: req.body.aid,
+        userid: req.body.userid,
         description: req.body.description,
         rules: req.body.rules,
         author: req.body.author,
@@ -86,6 +87,7 @@ result = await cloudinary.uploader.upload(req.file.path);
 }
 const data = {
     name: req.body.name || assignment.name,
+    userid: req.body.userid || assignment.userid,
     aid: req.body.aid || assignment.aid,
     description: req.body.description || assignment.description,
     rules: req.body.rules || assignment.rules,
@@ -103,6 +105,18 @@ res.json(assignment);
 }
 
 })
+
+router.get ("/user/:userid", async (req, res) => {
+    try {
+
+        let assignment = await assignmentModel.find({ userid: req.params.userid })
+     
+        res.json(assignment);
+    
+    } catch (err) {
+        console.log(err)
+    }
+});
 
 
 
