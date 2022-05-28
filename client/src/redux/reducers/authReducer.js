@@ -6,7 +6,8 @@ const initialState = {
     isAdmin: false,
     isSuper: false,
     isCoSuper: false,
-    isPanel: false
+    isPanel: false,
+    isSTD:false
 }
 
 const authReducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 isLogged: true
             }
+            case ACTIONS.LOGINSTD:
+                return {
+                    ...state,
+                    isSTD: true
+                }    
 
             case ACTIONS.GET_USER:
             return {

@@ -8,9 +8,22 @@ export const dispatchLogin = () => {
     }
 
 }
+export const STDdispatchLogin = () => {
+    return {
+        type: ACTIONS.LOGINSTD
+    }
+
+}
 
 export const fetchUser = async(token) => {
     const res = await axios.get('/user/infor',{
+        headers: {Authorization: token}
+
+    })
+    return res
+}
+export const STDfetchUser = async(token) => {
+    const res = await axios.get('/student/info',{
         headers: {Authorization: token}
 
     })

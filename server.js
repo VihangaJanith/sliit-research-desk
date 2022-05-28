@@ -20,7 +20,7 @@ app.use(fileUpload({
 app.use('/user', require('./routes/userRoutes'))
 app.use('/api', require('./routes/upload'))
 app.use('/file', require('./routes/uploadFiles'))
-
+app.use('/student', require('./routes/studentRoute'))
 
 
 

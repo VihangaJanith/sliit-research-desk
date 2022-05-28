@@ -25,14 +25,15 @@ import GetMarkings from '../markings/GetMarkings'
 
 import CreateDownloads from '../downloads/CreateDownloads'
 import GetDownloads from '../downloads/GetDownloads'
-
-
+import StudentHome from '../Student/secHome'
+import StdRegister from '../Student/register'
+import STDLogin from '../Student/login'
 import {useSelector} from 'react-redux'
-
+import STDprofile from '../Student/stdprofile'
 export default function Body() {
 
 const auth = useSelector(state => state.auth)
-const {isLogged, isAdmin, isSuper,isCoSuper, isPanel} = auth
+const {isLogged, isAdmin, isSuper,isCoSuper, isPanel,isSTD} = auth
 
 
   return (
@@ -66,10 +67,10 @@ const {isLogged, isAdmin, isSuper,isCoSuper, isPanel} = auth
 
             <Route path='/createdownloads' component={isAdmin ? CreateDownloads : NotFound} exact/>
             <Route path='/getdownloads' component={isAdmin ? GetDownloads : NotFound} exact/>
-
-
-           
-            
+            <Route path='/Student-Home' component={StudentHome} exact />
+            <Route path='/stdreg' component={StdRegister} exact/>
+            <Route path='/stdlogin' component={isSTD ? StudentHome: STDLogin} exact/>
+            <Route path='/stdprofile' component={isSTD ? STDprofile: STDLogin} exact/>
              
         </Switch>
 
