@@ -18,7 +18,7 @@ function App() {
   const token = useSelector(state => state.token)
   const auth = useSelector(state => state.auth)
   const tokenstd = useSelector(state => state.tokenstd)
-  const { isSTD} = auth
+  const { isSTD, isLogged} = auth
   useEffect(() => {
     const firstLogin = localStorage.getItem('firstLogin')
     if(firstLogin) {
@@ -81,12 +81,47 @@ function App() {
 
     <Router>
 
-      <div className="App" style={{ background: "white" }} >
-        <hr/>
+      <div className="App " style={{ background: "white" }} >
+        
+        <hr
+        style={{
+          marginTop: "-1em",
+          color: "#EA4335",
+          height: "7px"
+
+        }}
+        />
+      
+
+
+
+
+        {isSTD?
+      <div>
+      <Link to="/Student-Home">
+      <img src="https://courseweb.sliit.lk/pluginfile.php/1/theme_lambda/logo/1629135847/sliit_logo.jpg" alt=""/>
+      </Link>
+      <br/>
+      </div>  :
+      (isLogged?
+        <div>
+      <Link to="/staffhome">
+      <img src="https://courseweb.sliit.lk/pluginfile.php/1/theme_lambda/logo/1629135847/sliit_logo.jpg" alt=""/>
+      </Link>
+      <br/>
+      </div>  :
+      (<div>
         <Link to="/">
         <img src="https://courseweb.sliit.lk/pluginfile.php/1/theme_lambda/logo/1629135847/sliit_logo.jpg" alt=""/>
         </Link>
         <br/>
+        </div> )
+      )
+  
+
+
+      }
+
 
         
         {isSTD? <NavBar/> :<Header/>}

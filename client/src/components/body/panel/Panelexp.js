@@ -58,17 +58,16 @@ function Panelexp() {
   return (
     <>
     <div>
-      {err && showErrMsg(err)}
-      {success && showSuccessMsg(success)}
-      {loading && <h3> loading....</h3>}
+   
     </div>
+    <h1>Assign Groups to Panel Members</h1>
     <div className="profile_page">
           
 
 
 
             <div className="col-right">
-              <h2>{isAdmin ? "Users" : "MyOrders" }</h2>
+              
               
 
               <div style={{overflowX:"auto"}} className="user-list">
@@ -98,11 +97,11 @@ function Panelexp() {
                             
 
 
-                        <h3 scope="row">
+                        <h3 scope="row" className="col-md-5 card me-3 mt-2 p-1" style={{textDecoration: 'none', color:'crimson'}}>
                         
                            {user.name} </h3> 
                               
-                            <p scope="row"> {user._id} </p> 
+                            <p scope="row"> Area of Experties :{user.job} </p> 
                            
                         
                           <p scope="row"> Email : {user.email}</p>

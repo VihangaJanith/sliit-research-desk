@@ -38,6 +38,16 @@ app.use('/studentup', require('./routes/studentUploadRoute'));
 
 app.use('/assignedgroups', require('./routes/assignGrupsRoute'));
 
+app.use('/supervisorselection', require('./routes/supervisorSelection'));
+app.use('/cosupervisorselection', require('./routes/coSupervisorSelection'));
+
+app.use('/chat', require('./routes/chatRoute'));
+
+
+app.use('/groups', require('./routes/groupRoute'));
+
+app.use('/topics', require('./routes/TopicsRegistrationRoute'));
+
 
 
 app.listen(8000, () => console.log('Server is running on port 8000'))

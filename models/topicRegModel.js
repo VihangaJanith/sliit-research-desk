@@ -1,27 +1,26 @@
 const mongoose = require('mongoose');
 
 
-const studentUploadSchema = new mongoose.Schema({
-    name: {
+const topicRegSchema = new mongoose.Schema({
+    groupid: {
         type: String
 
     },
     userid: {
         type: String,
         default: "01"
+
     },
-    createdid :{
+
+    topic: {
         type: String,
         default: "01"
     },
-    aid: {
+    status: {
         type: String,
-        default: "01"
+        default: "Pending"
     },
-    comments: {
-        type: String,
-        default: "No Comments"
-    },   
+    
     file:{
         type:String,
         default: "https://res.cloudinary.com/vihanga/image/upload/v1649010992/avatar/149071_jersfv.png"
@@ -33,4 +32,4 @@ const studentUploadSchema = new mongoose.Schema({
 {
       timestamps: true
 });
-module.exports = mongoose.model('studentAssignments', studentUploadSchema);
+module.exports = mongoose.model('RegisterTopics', topicRegSchema);

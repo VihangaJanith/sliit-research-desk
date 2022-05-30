@@ -92,6 +92,7 @@ res.json(assignGroups);
 
 
 router.get ("/user/:userid", async (req, res) => {
+    
     try {
 
         let assignGroups = await assignGroupsModel.find({ userid: req.params.userid })

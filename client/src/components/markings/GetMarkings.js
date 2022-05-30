@@ -4,11 +4,16 @@ import { Link } from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 import {Button} from 'react-bootstrap'
+import { useSelector } from 'react-redux';
 
 
 
 
 const GetMarkings = () => {
+  const auth = useSelector(state => state.auth)
+  
+
+  const {user, isAdmin, isSTD} = auth
 const [crs, setCrs] = useState();
 const [users, setUsers] = useState();
 
@@ -87,9 +92,9 @@ const handleDelete = async(id) => {
                       
                       
                        
-
+                {isAdmin?
                          <button className="btn btn-danger" onClick={()=>{handleDelete(cr._id)}}>Delete Assignment</button>
-
+:''}
                 
                        
                        </div>

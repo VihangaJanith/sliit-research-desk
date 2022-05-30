@@ -13,6 +13,7 @@ router.post("/", upload.single('image'), async (req, res) => {
             
         name: req.body.name,
         userid: req.body.userid,
+        createdid :req.body.createdid,
         aid: req.body.aid,
         comments: req.body.comments,
         file: result.secure_url,
@@ -85,6 +86,7 @@ result = await cloudinary.uploader.upload(req.file.path);
 const data = {
     name: req.body.name || studentUp.name,
     aid: req.body.aid || studentUp.aid,
+    createdid: req.body.createdid || studentUp.createdid,
     comments: req.body.comments || studentUp.comments,
     userid: req.body.userid || studentUp.userid,
     file: result?.secure_url || studentUp.file,
@@ -124,6 +126,20 @@ router.get ("/user/:userid", async (req, res) => {
         console.log(err)
     }
 });
+
+router.get ("/user/:createdid", async (req, res) => {
+    try {
+
+        let studentUp = await studentUpModel.find({ createdid: req.params.createdid })
+     
+        res.json(studentUp);
+    
+    } catch (err) {
+        console.log(err)
+    }
+});
+
+
 
 
 

@@ -18,7 +18,7 @@ Header() {
 
         await axios.get('/user/logout')
         localStorage.removeItem('firstLogin')
-        window.location.href = "/";
+        window.location.href = "/login";
 
 
       }catch(err){
@@ -94,10 +94,18 @@ Header() {
 
   const adminlink = () => {
     return  <li className="drop-nav2">
+
+
+
+
+
+ 
       <Link to="#"className="drop-nav-link2" style={{ color: 'white', textDecoration: 'inherit'}}>
       Admin Options
       &nbsp;
       <i class="fas fa-angle-down"></i>
+
+      
         
       </Link>
   
@@ -122,7 +130,7 @@ Header() {
        
        <li><Link to="/panelexp"style={{ color: 'white', textDecoration: 'inherit'}}>Asign Groups </Link> </li>
   
-      </ul>
+      </ul> 
     </li>
     
     }
@@ -142,7 +150,7 @@ Header() {
         
         <ul className="dropdown2 mt-2">
       
-          <li><Link to={`/AssignedtoMe/${user._id}`} style={{ color: 'white', textDecoration: 'inherit'}}>Groups Assigned to me</Link> </li>
+          <li><Link to={`/AssignedtoMe/${user._id}`} style={{ color: 'white', textDecoration: 'inherit'}}>AssignedGroups</Link> </li>
           <hr style={{
           display: "inherit",
           marginTop: "inherit",
@@ -157,8 +165,9 @@ Header() {
               height: 2
           }}/>
          
-         <li><Link to="#"style={{ color: 'white', textDecoration: 'inherit'}}>Asign Groups </Link> </li>
-    
+          
+         <li><Link to="/getmarkings"style={{ color: 'white', textDecoration: 'inherit'}}>markingSchemes</Link> </li>
+      
         </ul>
       </li>
       
@@ -205,7 +214,22 @@ const transForm ={
     isLogged 
     ?
      userLink() 
-     :<li> <Link to="/login"style={{ color: 'white', fontSize: '20px' ,textDecoration: 'inherit'}}><i href="/login" className="fa-solid fa-cart-shopping"></i>Sign</Link> </li>
+     :<div className='row'> 
+      
+      <NavDropdown  className="col mt-2" title="Login" style={{ backgroundColor: 'white', borderRadius:"5px" , color: 'white'}}>
+          
+          <NavDropdown.Item  href="/stdlogin">Student Login</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="/login">Staff Login</NavDropdown.Item>
+        </NavDropdown>
+
+
+        
+
+        </div>
+     
+
+     
      
      }
 

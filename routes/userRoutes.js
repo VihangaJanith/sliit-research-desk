@@ -20,6 +20,8 @@ router.get('/infor', auth, userCtrl.getUserInfor)
 
 router.get('/all_infor', auth, authAdmin, userCtrl.getUserAllInfor)
 
+router.get('/alldata', userCtrl.getUserAllData)
+
 
 
 router.get('/logout', userCtrl.logout)

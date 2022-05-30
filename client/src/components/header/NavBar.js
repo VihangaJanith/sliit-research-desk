@@ -1,8 +1,10 @@
 import React from 'react'
-import Navbar from 'react-bootstrap/Navbar'
+
 import { Button } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap'
+
 
 
 
@@ -10,41 +12,78 @@ export default function NavBar (){
     const auth = useSelector(state => state.auth)
     const {user} = auth
 
-return(
-   
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="/Student-Home">SLIIT Research Desk</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <FontAwesomeIcon icon="fa-solid fa-circle-user" />
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        
-        {/* <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/a">Action</a>
-            <a class="dropdown-item" href="/aa">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li> */}
-           
-      </ul>
-     
-      <div class="dropdown">
+    const logout=()=>{
+      const logout=localStorage.removeItem('firstLogin1')
+      window.location.href = "/stdlogin";
  
-</div>
+     }
 
-      <h4><a href="/stdprofile">{user.name} Profile</a></h4>
+return(
+  <div>
+   
+
+  
+
+  <Navbar bg="dark" variant="dark">
+<Container> 
+  <Navbar.Brand href="/Student-Home">SLIIT Research Desk</Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse className="justify-content-end">
+<Nav className="justify-content-end" > 
+     
       
-      
+        <div className="row">
+        <div className="col">
+      <NavDropdown  title='Research Topics' id="basic-nav-dropdown"> 
+        <NavDropdown.Item href="/topicreg">Topics Registration</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href= {`/usertopics/${user._id}`} >My Topics </NavDropdown.Item>
+        </NavDropdown>
+        </div>
+        <div className="col">
+      <NavDropdown  title='Student Groups' id="basic-nav-dropdown"> 
+        <NavDropdown.Item href="/creategroup">Student Groups Registration</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href= {`/mygroups/${user._id}`} >My Group </NavDropdown.Item>
+        </NavDropdown>
+        </div>
+        <div className="col">
+      <NavDropdown  title='Co-Supervisors' id="basic-nav-dropdown"> 
+        <NavDropdown.Item href="/cosupervisorlist">Request Co-Supervisors</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href= {`/corequestbyme/${user._id}`} >My Co-Supervisor Requests </NavDropdown.Item>
+        </NavDropdown>
+        </div>
+          <div className="col">
+      <NavDropdown  title='Supervisors' id="basic-nav-dropdown"> 
+        <NavDropdown.Item href="/supervisorlist">Request Supervisors</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href= {`/requestbyme/${user._id}`} >My Supervisor Requests </NavDropdown.Item>
+        </NavDropdown>
+        </div>
+        <div className="col">
+
+      <NavDropdown  title={user.name} id="basic-nav-dropdown"> 
+        <NavDropdown.Item href="/stdprofile">Profile</NavDropdown.Item>
+        <NavDropdown.Item href="">Another action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
+      </NavDropdown>
       </div>
-    
-  </nav>
+      </div>
+     
+    </Nav>
+  </Navbar.Collapse>
+</Container>
+</Navbar>
+
+
+
+
+    </div>
+
+
  
   
 
