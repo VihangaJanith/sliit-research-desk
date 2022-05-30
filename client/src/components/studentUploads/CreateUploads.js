@@ -3,16 +3,22 @@ import { useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import '../assignment/assignment.css'
 
-const CreateUploads = () => {
+const CreateUploads = ({match}) => {
     const history = useHistory();
     const auth = useSelector(state => state.auth)
   console.log(auth)
+    const {user , isLogged, isAdmin, isSuper,isCoSuper,isPanel} = auth
 
-  const {user, isLogged} = auth
+
+  console.log(match.params.id)
+  console.log(match.params.aid)
+    console.log(match.params.createdid)
+
 
     const [crs, setData] = useState({
         name: '',
         userid: '',
+        createdid: '',
         aid: '',
         comments: '',
         image: ''
@@ -28,16 +34,17 @@ const CreateUploads = () => {
             let formData = new FormData();
             formData.append('image', crs.image);
 
-            formData.append('name', crs.name);
-            formData.append('aid', crs.aid);
-            formData.append('userid', crs.userid);
+            formData.append('name', match.params.studentno);
+            formData.append('createdid', match.params.createdid);
+            formData.append('aid', match.params.aid);
+            formData.append('userid', user._id);
             formData.append('comments', crs.comments);
 const res = await fetch('http://localhost:8000/studentup',  {
     method: 'POST',
     body: formData ,
 
         });
-        console.log(res)
+    
 
         
 
@@ -66,38 +73,38 @@ return (
     {user.name}
 
     
-    <div className="mb-3">
+    {/* <div className="mb-3">
         <label htmlFor="name">User Name</label>
         <input type="text" 
          
         placeholder="name"
         name = "name"
-        value={crs.name}
+        value={match.params.studentno}
         onChange={handleChange('name')} />
-     </div>
+     </div> */}
 
      
-     <div className="mb-3">
+     {/* <div className="mb-3">
      <label htmlFor="name">Assignment ID</label>
         <input type="text" 
         className="form-control" 
         placeholder="Assignment ID"
         name = "aid"
-        value={crs.aid}
+        value={match.params.aid}
         onChange={handleChange('aid')} />
-     </div>
+     </div> */}
 
 
     
-     <div className="mb-3">
+     {/* <div className="mb-3">
      <label htmlFor="name">Userid</label>
         <input type="text" 
         className="form-control" 
         placeholder="userid"
         name = "userid"
-        value={crs.userid}
+        value={user._id}
         onChange={handleChange('userid')} />
-     </div>
+     </div> */}
      
      <div className="mb-3">
      <label htmlFor="name">comments</label>

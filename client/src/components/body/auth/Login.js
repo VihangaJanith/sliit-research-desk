@@ -36,7 +36,7 @@ function Login() {
 
             localStorage.setItem('firstLogin', true)
             dispatch(dispatchLogin())
-            history.push('/')
+            history.push('/staffhome')
 
         }catch(err) {
            err.response.data.msg &&  

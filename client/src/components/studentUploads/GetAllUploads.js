@@ -4,11 +4,16 @@ import { Link } from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 import {Button} from 'react-bootstrap'
+import { useSelector } from 'react-redux';
 
 
 
 
 const GetAllUploads = () => {
+  const auth = useSelector(state => state.auth)
+  
+
+  const {user, isAdmin, isSTD} = auth
 const [crs, setCrs] = useState();
 const [users, setUsers] = useState();
 
@@ -79,13 +84,15 @@ const handleDelete = async(id) => {
                        </CloudinaryContext>
                         <a  className="col-md-9 card me-3 mt-2 p-1" style={{textDecoration: 'none', color:'crimson'}}>Assignment ID : {cr.aid}</a> 
 
-                      {cr.userid}
-{/*                       
-                       <Button variant="success">
-                        <a href={`/editassi/${cr._id}`}  style={{textDecoration: 'none', color:'white'}} > Edit  </a>
-                         </Button>{' '} */}
+                    Creted Student ID :  {cr.userid}
+                   <p>   Uploaded Date & Time : {cr.createdAt.substring(0,10)} : { cr.createdAt.substring(11,16)}</p>
 
+
+
+{isAdmin? 
                          <button className="btn btn-danger" onClick={()=>{handleDelete(cr._id)}}>Delete Assignment</button>
+
+: ''}
 
                 
                        
