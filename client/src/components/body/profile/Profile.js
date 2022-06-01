@@ -25,7 +25,7 @@ function Profile() {
   const token = useSelector(state => state.token)
   const users = useSelector(state => state.users)
 
-  const {user, isAdmin} = auth
+  const {user, isAdmin , isSuper , isCoSuper, isLogged} = auth
   const [data, setData] = useState(initialState)
 
   const {name, password, cf_password,job, err, success} = data
@@ -101,16 +101,8 @@ function Profile() {
         headers: {Authorization: token}
       }) 
 
-      setData({...data, err:'', success:"Update Success" })
+      setData({...data, err:'', success:"Profile Updateed Successfully" })
 
-     
-Swal.fire({
-  position: 'top-start',
-  icon: 'success',
-  title: 'Your work has been saved',
-  showConfirmButton: false,
-  timer: 1500
-})
       
       
 
@@ -175,14 +167,16 @@ Swal.fire({
   return (
     <>
     <div>
-      {err && showErrMsg(err)}
-      {success && showSuccessMsg(success)}
-      {loading && <h3> loading....</h3>}
+      
     </div>
     <div className="profile_page">
              <div className="col-left">
-               <h2>{isAdmin ? "Admin Profile" : "User Profile" }</h2>
+               <h2>{isAdmin ? "Admin Profile" : "Staff-Member Profile " }</h2>
+               
 
+{err && showErrMsg(err)}
+      {success && showSuccessMsg(success)}
+      {loading && <h3> loading....</h3>}
                <div className="avatar">
                   <img src={avatar ? avatar: user.avatar} alt="" />
                   <span>
@@ -203,7 +197,8 @@ Swal.fire({
                 <input type="email" name="email" id="email" defaultValue={user.email}
                 placeholder="Your email" disabled/>
               </div>
-              <label htmlFor="job">job</label>
+              <label htmlFor="job">Interests </label>
+              <em style={{fontSize:"15px",color:"crimson"}}>**Split Interests with a Comma (,)</em> <br/>
                 <input type="text" name="job" id="job" defaultValue={user.job}
                 placeholder="Your job" onChange={handeChangeInput}/>
               <div className="form-froup">
@@ -229,9 +224,9 @@ Swal.fire({
              </div>
 
 
-
+{/* 
             <div className="col-right">
-              <h2>{isAdmin ? "Users" : "MyOrders" }</h2>
+              <h2>{isAdmin ? "Users" : "" }</h2>
               
 
               <div style={{overflowX:"auto"}} className="user-list">
@@ -299,7 +294,7 @@ Swal.fire({
               </div>
 
 
-            </div>
+            </div> */}
 
 
       

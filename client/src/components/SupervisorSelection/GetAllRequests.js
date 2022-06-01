@@ -35,7 +35,7 @@ const handleDelete = async(id) => {
   if(res.ok){
     const updatedUsers = crs.filter(cr => cr.id !== id);
     setCrs(updatedUsers);
-    alert('Successfully deleted')
+    alert('Successfully Deleted')
     window.location.reload();
   }
   }catch(err){
@@ -75,7 +75,7 @@ const handleDelete = async(id) => {
 
 
 
-                         <button className="btn btn-danger mt-2" onClick={()=>{handleDelete(cr._id)}}>Delete Assignment</button>
+                         <button className="btn btn-danger mt-2" onClick={()=>{handleDelete(cr._id)}}>Delete Request</button>
 
                 
                        

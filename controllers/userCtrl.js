@@ -21,10 +21,10 @@ const userCtrl = {
             return res.status(400).json({msg: "Invalid Emial"})
 
             const user = await Users.findOne({email})
-            if(user)  return res.status(400).json({msg: "Email already existes"})
+            if(user)  return res.status(400).json({msg: "Email already exists"})
 
             if (password.length < 6 )
-            return res.status(400).json({msg: "password must be at least 6 characters"})
+            return res.status(400).json({msg: "Password must be atleast 6 characters"})
 
             const passwordHash = await brcypt.hash(password, 12)
         console.log({password, passwordHash})
@@ -42,7 +42,7 @@ const userCtrl = {
             sendMail(email, url, "Verify your email")
 
 
-            res.json({msg: "reg suucess avtivate your account by email"});
+            res.json({msg: "Staff Registration Success. Avtivate your account by email"});
         } catch(err){
             return res.status(500).json({msg: err.message});
         }
@@ -57,14 +57,14 @@ const userCtrl = {
         const {name,email,password,role,job} = user
         const check = await Users.findOne({email})
 
-        if(check) return res.status(400).json({msg: "Email already existes"})
+        if(check) return res.status(400).json({msg: "Email already exists"})
 
         const newUser = new Users({
           name,email,password,role,job
         })
 
         await newUser.save()
-        res.json({msg: "account has been activated suucess"});
+        res.json({msg: "Account has been Activated Successfully, PLease Login "});
 
 
       } catch(err){
@@ -75,10 +75,10 @@ const userCtrl = {
         try {
           const {email, password} = req.body
           const user = await Users.findOne({email})
-          if (!user) return res.status(400).json({msg: "Email not exist"})
+          if (!user) return res.status(400).json({msg: "Email Doesn't Exist "})
 
           const isMatch = await brcypt.compare(password, user.password)
-          if (!isMatch) return res.status(400).json({msg: "Password is incorrect"})
+          if (!isMatch) return res.status(400).json({msg: "Password is Incorrect"})
 
  
           const refresh_token = createRefreshToken({id: user._id})
@@ -88,7 +88,7 @@ const userCtrl = {
             maxAge: 1000 * 60 * 60 * 24 * 7
           })
 
-          res.json({msg: "login suucess"})
+          res.json({msg: "Login Successfully"})
 
 
         } catch (err) {
@@ -126,7 +126,7 @@ const userCtrl = {
         const url = `${CLIENT_URL}/user/reset/${access_token}`
 
         sendEmail(email, url , "rest your password")
-        res.json({msg: "re-send the password reset, check your email"})
+        res.json({msg: "Check your Email to Reset the Password"})
 
 
       }catch (err){
@@ -146,7 +146,7 @@ const userCtrl = {
           password:passwordHash
           })
 
-          res.json({msg: "password has been reset suucess"})
+          res.json({msg: "Password has been Reset Successfully"})
 
 
 
@@ -182,7 +182,7 @@ const userCtrl = {
     logout: async (req, res) => {
       try{
         res.clearCookie('refresgtoken', {path : '/user/refresh_token'})
-        return res.json({msg: "logout suucess"})
+        return res.json({msg: "Logout Successfully"})
 
 
       }catch (err){
@@ -195,7 +195,7 @@ const userCtrl = {
       await Users.findOneAndUpdate({_id:req.user.id}, {
         name, avatar, job
       })
-      res.json({msg: "update suucess"})
+      res.json({msg: "User Details Updated Successfully"})
 
     }catch (err){
       return res.status(500).json({msg: err.message})
@@ -207,7 +207,7 @@ const userCtrl = {
         await Users.findOneAndUpdate({_id:req.params.id}, {
           role
         })
-        res.json({msg: "user role update suucess"})
+        res.json({msg: "User Role Update Successfully"})
   
       }catch (err){
         return res.status(500).json({msg: err.message})
@@ -221,7 +221,7 @@ const userCtrl = {
         await Users.findOneAndUpdate({_id:req.params.id}, {
           roledesc
         })
-        res.json({msg: "panel role update suucess"})
+        res.json({msg: "Panel Member Updated Successfully"})
   
       }catch (err){
         return res.status(500).json({msg: err.message})
@@ -233,7 +233,7 @@ const userCtrl = {
       {
         try{
           await Users.findByIdAndDelete(req.params.id)
-          res.json({msg: "user has been deleted suucess"})
+          res.json({msg: "User Account Deleted Successfully"})
 
         }catch (err){
           return res.status(500).json({msg: err.message})

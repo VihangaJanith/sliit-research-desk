@@ -64,7 +64,7 @@ const res = await fetch('http://localhost:8000/down');
 
       <h1 className="text-center p-1 "  style={{color: 'white', backgroundColor:'#E2A500' }}>SLIIT RESEARCHDESK</h1>
 
-      <img className="mb-3" src={'https://images.newscientist.com/wp-content/uploads/2018/08/29133003/gettyimages-895331868.jpg?crop=16:9,smart&width=1200&height=675&upscale=true'} alt="profile" style={{flex:"1" , width:"100%", height:"500px"}}/>
+      <img className="mb-3" src={'https://www.goodwall.io/blog/wp-content/uploads/2021/10/best-laptops-for-college-students.jpg'} alt="profile" style={{flex:"1" , width:"100%", height:"500px"}}/>
 
 
 <div className="card p-2 mb-3">

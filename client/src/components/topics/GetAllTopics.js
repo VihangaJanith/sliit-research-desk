@@ -4,11 +4,15 @@ import { Link } from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 import {Button} from 'react-bootstrap'
+import { useSelector } from 'react-redux';
 
 
 
 
 const GetAllTopics = () => {
+  const auth = useSelector(state => state.auth)
+const {isLogged, isAdmin, isSuper,isCoSuper, isPanel,isSTD} = auth
+
 const [crs, setCrs] = useState();
 const [users, setUsers] = useState();
 
@@ -79,18 +83,22 @@ const handleDelete = async(id) => {
                 </a>
                 </CloudinaryContext>
 
-                <a style={{textDecoration: 'none', color:'crimson'}}>Group ID {cr.groupid}</a>
+                <a style={{textDecoration: 'none', color:'crimson'}}>Group ID : {cr.groupid}</a>
 
 
-                <a  className="col-md-9 card me-3 mt-2 p-1" style={{textDecoration: 'none', color:'crimson'}}>Status: {cr.status}</a> 
+                <a  className="col-md-9 card me-3 mt-2 p-1 mb-2" style={{textDecoration: 'none', color:'crimson'}}>Status : {cr.status}</a> 
 
-                
-         <Button variant="success">
+
+
+          {isAdmin || isPanel ?  
+                <div>
+         <button className="btn btn-warning mr-2" variant="success">
                         <a href={`/topicstatus/${cr._id}`}  style={{textDecoration: 'none', color:'white'}} > Approve or Reject Topic  </a>
-                         </Button>{' '}
+                         </button>
 
                          <button className="btn btn-danger" onClick={()=>{handleDelete(cr._id)}}>Delete Topic Submission</button>
-
+                         </div>
+         : '' }
                 
         
                 

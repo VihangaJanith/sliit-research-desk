@@ -83,14 +83,83 @@ function App() {
 
       <div className="App " style={{ background: "white" }} >
         
+      
+
         <hr
         style={{
+          color: "black",
           marginTop: "-1em",
-          color: "#EA4335",
-          height: "7px"
+          color: "#E2A500",
+          backgroundColor: "#E2A500",
+
+          width: "1500px",
+          marginLeft: "-1em",
+          height: "8px",
+      
 
         }}
         />
+        
+<hr
+        style={{
+          color: "black",
+          marginTop: "-1em",
+          color: "#E2A500",
+          backgroundColor: "#E2A500",
+
+          width: "1500px",
+          marginLeft: "-1em",
+          height: "8px",
+      
+
+        }}
+        />
+        <hr
+        style={{
+          color: "black",
+          marginTop: "-1em",
+          color: "#E2A500",
+          backgroundColor: "#E2A500",
+
+          width: "1500px",
+          marginLeft: "-1em",
+          height: "8px",
+      
+
+        }}
+        />
+         <hr
+        style={{
+          color: "black",
+          marginTop: "-1em",
+          color: "#E2A500",
+          backgroundColor: "#E2A500",
+
+          width: "1500px",
+          marginLeft: "-1em",
+          height: "8px",
+      
+
+        }}
+        />
+         <hr
+        style={{
+          color: "black",
+          marginTop: "-1em",
+          color: "#E2A500",
+          backgroundColor: "#E2A500",
+
+          width: "1500px",
+          marginLeft: "-1em",
+          height: "8px",
+      
+
+        }}
+        />
+
+        
+      
+
       
 
 

@@ -16,10 +16,11 @@ const GetAllGroups = () => {
     console.log(groups);
     return (
         <div>
+          <h1>  All Student Groups</h1>
             <ul>
                 {groups && groups.map((group, i) => (
                     <div className = "group" key = {i}>
-                        <Group group = {group}/>
+                        <Group className="p-3" group = {group}/>
                     </div>
                 ))}
             </ul>

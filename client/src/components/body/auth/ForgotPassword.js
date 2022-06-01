@@ -45,22 +45,22 @@ const initialState = {
 
 
    return (
-     <div className="fg_pass">
-         <h2>ForgotPassword</h2>
+     <div className="login_page">
+         <h2>Forgot Password</h2>
 
          <div className="row">
-             
+
             {err && showErrMsg(err)}
             {success && showSuccessMsg(success)}
             </div>
             <br/>
 
             <div className="row">
-            <label > Email Address</label>
+            <label style={{marginLeft:'-10px'}}  >Email Address</label>
 
-            <input type="email" name="email" id="email" placeholder="Email "value={email} 
+            <input  type="email" name="email" id="email" placeholder="Email "value={email} 
             onChange={handeChangeInput}/> 
-            <button onClick={forgotPassword}>Verify Your Email</button>
+            <button style={{textDecoration:"none" ,marginLeft:'0px', width:"250px", textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}} onClick={forgotPassword}>Verify Your Email</button>
 
             </div>
          </div>

@@ -2,8 +2,12 @@ import { Link, useHistory } from 'react-router-dom';
 import React from 'react';
 import "./Group.css";
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 const Group = (props) => {
+    const auth = useSelector(state => state.auth)
+    const {isLogged, isAdmin, isSuper,isCoSuper, isPanel,isSTD} = auth
+
     const history = useHistory();
 
     const { _id, student_id1, student_id2, student_id3, student_id4, groupname, groupid } = props.group;
@@ -20,9 +24,17 @@ const Group = (props) => {
     };
 
     return (
-        <div>
+        <div >
             <form className='card col-md-6 mt-3 mb-3'>
-                <h2>Group Registration Form</h2>
+
+            <h5>Group ID</h5>
+                <input
+               
+                    value={groupid}
+                    type="text"
+                    name="groupid"
+                    required />
+                
                 <h6>Student ID of Member 1</h6>
 
             
@@ -65,17 +77,16 @@ const Group = (props) => {
                     required />
 
 
-                    <h6>Group ID</h6>
-                <input
-               
-                    value={groupid}
-                    type="text"
-                    name="groupid"
-                    required />
+                    
 
                 <br />
-                <Link to={`/assigngroupid/${_id}`}  className='btn btn-warning  fa fa-edit mb-2'>  Update</Link>
+                {isAdmin || isPanel ?
+                <div className='row'>
+                <Link to={`/assigngroupid/${_id}`}  className='btn btn-warning  fa fa-edit mb-2'>  Assign Group ID</Link>
+             
                 <button onClick={deleteHandler} className='btn btn-danger fa fa-trash mb-2'>  Delete</button>
+                </div>
+                : ''}
             </form >  
         </div> 
     )

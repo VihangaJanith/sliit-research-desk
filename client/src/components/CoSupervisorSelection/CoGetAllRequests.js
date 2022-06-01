@@ -75,7 +75,7 @@ const handleDelete = async(id) => {
 
 
 
-                         <button className="btn btn-danger mt-2" onClick={()=>{handleDelete(cr._id)}}>Delete Assignment</button>
+                         <button className="btn btn-danger mt-2" onClick={()=>{handleDelete(cr._id)}}>Delete Request</button>
 
                 
                        

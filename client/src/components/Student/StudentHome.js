@@ -14,7 +14,7 @@ export default function StudentsHome() {
 
   return (
     <div>
-        <p>SLIIT ResearchDesk</p>
+        <p className="mt-3 mb-4" >SLIIT ResearchDesk</p>
 
         <div className="mt-3" style={{borderRadius:"100x"}}>
       <SimpleImageSlider
