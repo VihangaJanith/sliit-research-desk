@@ -122,7 +122,8 @@ function Register() {
            
 
             <div>
-                <label htmlFor="job">Job Description</label>
+                <label htmlFor="job">Description (Enter Your Interests)</label>
+                <em style={{fontSize:"15px",color:"crimson"}}>**Split Interests with a Comma (,)</em> <br/>
                 <input type="text" placeholder="Enter Your Job Description" id="job"
                 value={job} name="job" onChange={handeInputChange}/>
             </div>

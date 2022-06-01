@@ -63,9 +63,6 @@ return (
 
     <h1>Chat to Supervisor</h1>
 
-{user.name}
-{user._id}
-   
 
     
     <div className="mb-3">

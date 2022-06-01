@@ -77,7 +77,7 @@ import axios from "axios";
      
 
      <div>
-        <button className="btn btn-primary" >Submit Details</button>
+        <button className="btn btn-success" >Submit Request</button>
      </div>
 
 

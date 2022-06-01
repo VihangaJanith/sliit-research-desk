@@ -188,7 +188,7 @@ const transForm ={
       
     
 
-<header>
+<header >
 
 
 
@@ -219,7 +219,17 @@ const transForm ={
       <NavDropdown  className="col mt-2" title="Login" style={{ backgroundColor: 'white', borderRadius:"5px" , color: 'white'}}>
           
           <NavDropdown.Item  href="/stdlogin">Student Login</NavDropdown.Item>
-          <NavDropdown.Divider />
+          <NavDropdown.Divider style={{
+       
+        marginTop: "inherit",
+        marginBottom: "inherit",
+      
+       
+        borderWidth: "inherit",
+        borderColor: "inherit",
+        color: "inherit",
+           
+        }}/>
           <NavDropdown.Item href="/login">Staff Login</NavDropdown.Item>
         </NavDropdown>
 

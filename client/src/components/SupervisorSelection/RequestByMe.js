@@ -77,14 +77,14 @@ function RequestByMe({match}) {
                       Status : {cr.approval}
                     </p>
 
-                    <Link   to={`/createchatstudent/${cr.superid}/${cr.supername}`}>
+                    <Link  className="mr-2"  to={`/createchatstudent/${cr.superid}/${cr.supername}`}>
                             <button className="btn btn-warning">                          
                            Chat with supervisor
                             </button>
                             </Link>
 
                             <Link   to={`/chatsstudents/${cr.superid}`}>
-                            <button className="btn btn-warning">                          
+                            <button className="btn btn-secondary">                          
                            Messages from supervisor
                             </button>
                             </Link>

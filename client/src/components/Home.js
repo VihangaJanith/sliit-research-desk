@@ -48,6 +48,14 @@ function Home() {
 
 
 <div>{isAdmin ? <div > 
+  <h1 className="text-center p-1 pb-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>User Management</h1>
+
+
+<Link style={{textDecoration:"none"}} to={`/allusers`}> <button className="btn"  style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
+All Staff Members
+ 
+     
+   </button> </Link>
 
   <h1 className="text-center p-1 pb-2 mt-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>Assignment Options</h1>
   
@@ -180,6 +188,7 @@ Create Assignments
     isSuper
       ? 
       <div>
+       
         <h1 className="text-center p-1 pb-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>Supervisor Student Requests</h1>
 
 
@@ -200,6 +209,29 @@ Create Assignments
 
      <Link style={{textDecoration:"none"}} to={`/getuploads/`}> <button className="btns" style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
   All Submissions
+   
+       
+     </button> </Link>
+
+     <h1 className="text-center p-1 pb-2 mt-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>Student Groups Management</h1>
+     <Link style={{textDecoration:"none"}} to={`/getallgroups`}> <button className="btn"  style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
+ All Student Groups
+   
+       
+     </button> </Link>
+
+
+     <h1 className="text-center p-1 pb-2 mt-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>Student Topics Management</h1>
+     <Link style={{textDecoration:"none"}} to={`/getalltopics`}> <button className="btn"  style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
+ All Student Topic Registrations
+   
+       
+     </button> </Link>
+
+     <h1 className="text-center p-1 pb-2 mt-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>Assignments</h1>
+
+     <Link style={{textDecoration:"none"}} to={`/getallassi/`}> <button className="btn" style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
+  All Created Assignments
    
        
      </button> </Link>
@@ -226,6 +258,29 @@ Student Requests
   All Created Markings
    
      </button> </Link> 
+
+     <h1 className="text-center p-1 pb-2 mt-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>Student Groups Management</h1>
+     <Link style={{textDecoration:"none"}} to={`/getallgroups`}> <button className="btn"  style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
+ All Student Groups
+   
+       
+     </button> </Link>
+
+
+     <h1 className="text-center p-1 pb-2 mt-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>Student Topics Management</h1>
+     <Link style={{textDecoration:"none"}} to={`/getalltopics`}> <button className="btn"  style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
+ All Student Topic Registrations
+   
+       
+     </button> </Link>
+
+     <h1 className="text-center p-1 pb-2 mt-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>Assignments</h1>
+
+     <Link style={{textDecoration:"none"}} to={`/getallassi/`}> <button className="btn" style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
+  All Created Assignments
+   
+       
+     </button> </Link>
       
       </div>
        : '' 
@@ -241,6 +296,42 @@ Student Requests
 
         <Link style={{textDecoration:"none"}} to={`/AssignedtoMe/${user._id}`}> <button className="btn"  style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}} >
  Groups Assigned to me
+</button> </Link>
+ <h1 className="text-center p-1 pb-2 mt-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>Marking Schemes</h1>
+     <Link  style={{textDecoration:"none"}}to={`/getmarkings/`}> <button className="btn" style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
+  All Created Markings
+   
+     </button> </Link> 
+
+     
+   
+       
+     
+     <h1 className="text-center p-1 pb-2 mt-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>Student Groups Management</h1>
+     <Link style={{textDecoration:"none"}} to={`/getallgroups`}> <button className="btn"  style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
+ All Student Groups
+   
+       
+     </button> </Link>
+
+
+     <h1 className="text-center p-1 pb-2 mt-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>Student Topics Management</h1>
+     <Link style={{textDecoration:"none"}} to={`/getalltopics`}> <button className="btn"  style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
+ All Student Topic Registrations
+   
+       
+     </button> </Link>
+     <h1 className="text-center p-1 pb-2 mt-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>Assignments</h1>
+
+     <Link style={{textDecoration:"none"}} to={`/getallassi/`}> <button className="btn" style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
+  All Created Assignments
+   
+       
+     </button> </Link>
+
+
+     <Link style={{textDecoration:"none"}} to={`/getuploads/`}> <button className="btn"  style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
+  All Submissions
    
        
      </button> </Link>

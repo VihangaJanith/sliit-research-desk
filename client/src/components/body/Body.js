@@ -17,6 +17,7 @@ import Panelexp from '../body/panel/Panelexp'
 import CreateGroupAssign from './panel/CreateGroupAssign'
 import GetAllAssignedGrups from './panel/GetAllAssignedGrups'
 import AssignedtoMe from './panel/AssignedtoMe'
+import AllUsers from './profile/AllUsers'
 
 import CreateAssignment from '../assignment/CreateAssignment'
 import GetAllAssignements from '../assignment/GetAllAssignments'
@@ -121,6 +122,7 @@ const {isLogged, isAdmin, isSuper,isCoSuper, isPanel,isSTD} = auth
             <Route path='/GetAllAssignedGrups' component={isAdmin ? GetAllAssignedGrups : NotFound} exact/>
             <Route path='/AssignedtoMe/:id' component={isPanel ? AssignedtoMe : NotFound} exact/>
             <Route path='/studentview' component={StudentView} exact/>
+            <Route path='/allusers' component={isAdmin ? AllUsers : NotFound} exact/>
 
             <Route path='/student/active/:activetocken' component={StdActivation} exact/>
 
@@ -128,7 +130,7 @@ const {isLogged, isAdmin, isSuper,isCoSuper, isPanel,isSTD} = auth
 
 
             <Route path='/createassi' component={isAdmin ? CreateAssignment : NotFound} exact/>
-            <Route path='/getallassi' component={isAdmin ? GetAllAssignements : NotFound} exact/>
+            <Route path='/getallassi' component={isSuper || isAdmin || isCoSuper || isPanel ? GetAllAssignements : NotFound} exact/>
             <Route path='/editassi/:id' component={isAdmin ? EditAssignment : NotFound} exact/>
             <Route path='/usercreated/:id' component={isAdmin ? UserCreatedAssignment : NotFound} exact/>
 
@@ -140,56 +142,56 @@ const {isLogged, isAdmin, isSuper,isCoSuper, isPanel,isSTD} = auth
 
 
             <Route path='/Student-Home' component={StudentHome} exact />
-            <Route path='/' component={isSTD? StudentHome : StudentsHome} exact />
-            <Route path='/stdreg' component={StdRegister} exact/>
-            <Route path='/stdlogin' component={isSTD ? StudentHome: STDLogin} exact/>
+            <Route path='/' component={isSTD? StudentHome : StudentsHome } exact />
+            <Route path='/stdreg' component={ isSTD? StudentHome : StdRegister   } exact/>
+            <Route path='/stdlogin' component={isSTD ? StudentHome: STDLogin } exact/>
             <Route path='/stdprofile' component={isSTD ? STDprofile: STDLogin} exact/>
 
 
             <Route path='/testusers' component={isAdmin ? TestUsers : NotFound} exact/>
 
 
-            <Route path='/createuploads/:id?/:aid?/:createdid?/:studentno?' component={ CreateUploads} exact/>
-            <Route path='/getuploads' component={GetAllUploads} exact/>
-            <Route path='/useruploadedAssi/:id' component={UserUploads} exact/>
+            <Route path='/createuploads/:id?/:aid?/:createdid?/:studentno?' component={isSTD? CreateUploads : STDLogin} exact/>
+            <Route path='/getuploads' component={isSuper || isAdmin || isCoSuper || isPanel  ? GetAllUploads : Login} exact/>
+            <Route path='/useruploadedAssi/:id' component={isSTD? UserUploads : STDLogin} exact/>
 
 
-            <Route path='/supervisorlist' component={isSTD? Supervisorlist : NotFound} exact/>
-            <Route path='/requestsupervisor/:superid?/:supername?' component={RequestSupervisor} exact/>
-            <Route path='/getallrequests' component={GetAllRequests} exact/>
-            <Route path='/requesttome/:id' component={RequestToMe} exact/>
-            <Route path='/requestbyme/:id' component={RequestByMe} exact/>
-            <Route path='/requeststatus/:id' component={RequestStatus} exact/>
+            <Route path='/supervisorlist' component={isSTD || isAdmin ? Supervisorlist : STDLogin} exact/>
+            <Route path='/requestsupervisor/:superid?/:supername?' component={ isSTD ? RequestSupervisor : STDLogin} exact/>
+            <Route path='/getallrequests' component={isAdmin ? GetAllRequests : Login} exact/>
+            <Route path='/requesttome/:id' component={isSuper? RequestToMe : Login} exact/>
+            <Route path='/requestbyme/:id' component={isSTD ? RequestByMe : STDLogin} exact/>
+            <Route path='/requeststatus/:id' component={isSuper ? RequestStatus : Login} exact/>
 
 
-            <Route path='/cosupervisorlist' component={CoSupervisorlist} exact/>
-            <Route path='/requestcosupervisor/:superid?/:supername?' component={RequestCoSupervisor} exact/>
-            <Route path='/cogetallrequests' component={CoGetAllRequests} exact/>
-            <Route path='/corequestbyme/:id' component={CoRequestByMe} exact/>
-            <Route path='/corequesttome/:id' component={CoRequestToMe} exact/>
-            <Route path='/corequeststatus/:id' component={RequestStatusCo} exact/>
+            <Route path='/cosupervisorlist' component={ isSTD || isAdmin ? CoSupervisorlist : STDLogin} exact/>
+            <Route path='/requestcosupervisor/:superid?/:supername?' component={isSTD ? RequestCoSupervisor : STDLogin} exact/>
+            <Route path='/cogetallrequests' component={isAdmin ? CoGetAllRequests : Login} exact/>
+            <Route path='/corequestbyme/:id' component={isSTD  ? CoRequestByMe : STDLogin} exact/>
+            <Route path='/corequesttome/:id' component={isCoSuper ? CoRequestToMe : Login} exact/>
+            <Route path='/corequeststatus/:id' component={isCoSuper ? RequestStatusCo : Login} exact/>
 
 
 
 
-            <Route path='/createchat/:studentid?/:studentname?' component={CreateChat} exact/>
-            <Route path='/chats/:id?/:studentid?' component={ChatsToSupervisor} exact/>
-            <Route path='/createchatstudent/:superid?/:supername?' component={CreateChatStudent} exact/>
-            <Route path='/chatsstudent/:id' component={ChatsToStudent} exact/>
-            <Route path='/chatsstudents/:id' component={ChatsStudents} exact/>
+            <Route path='/createchat/:studentid?/:studentname?' component={isSuper? CreateChat : Login } exact/>
+            <Route path='/chats/:id?/:studentid?' component={isSuper? ChatsToSupervisor : Login} exact/>
+            <Route path='/createchatstudent/:superid?/:supername?' component={isSTD ? CreateChatStudent : STDLogin} exact/>
+            <Route path='/chatsstudent/:id' component={isSuper? ChatsToStudent : Login} exact/>
+            <Route path='/chatsstudents/:id' component={isSTD ? ChatsStudents : STDLogin} exact/>
       
 
-            <Route path='/getallgroups' component={GetAllGroups} exact/>
-            <Route path='/creategroup' component={CreateGroup} exact/>
-            <Route path='/groups/:id' component={GetGroup} exact/>
-            <Route path='/mygroups/:id' component={GetMyGroups} exact/>
-            <Route path='/assigngroupid/:id' component={AssignGroupID} exact/>
+            <Route path='/getallgroups' component={isSuper || isAdmin || isCoSuper || isPanel  ? GetAllGroups : Login} exact/>
+            <Route path='/creategroup' component={isSTD ? CreateGroup : STDLogin} exact/>
+            <Route path='/groups/:id' component={isSTD? GetGroup : STDLogin} exact/>
+            <Route path='/mygroups/:id' component={isSTD? GetMyGroups : STDLogin} exact/>
+            <Route path='/assigngroupid/:id' component={isAdmin ? AssignGroupID : Login} exact/>
 
 
-            <Route path='/topicreg' component={TopicRegistration} exact/>
-            <Route path='/usertopics/:id' component={UserTopics} exact/>
-            <Route path='/getalltopics' component={GetAllTopics} exact/>
-            <Route path='/topicstatus/:id' component={TopicStatus} exact/>
+            <Route path='/topicreg' component={isSTD ? TopicRegistration : STDLogin} exact/>
+            <Route path='/usertopics/:id' component={isSTD? UserTopics : STDLogin} exact/>
+            <Route path='/getalltopics' component={isSuper || isAdmin || isCoSuper || isPanel ? GetAllTopics : Login} exact/>
+            <Route path='/topicstatus/:id' component={isAdmin  || isPanel  ? TopicStatus : Login} exact/>
 
 
            
