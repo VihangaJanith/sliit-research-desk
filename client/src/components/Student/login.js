@@ -55,10 +55,14 @@ function STDLogin() {
             const res = await axios.post('student/login', {studentNumber, password})
             setUser({...user, err:'', success:res.data.msg})
 
+
             localStorage.setItem('firstLogin1',true)
             dispatch(STDdispatchLogin()) 
+             localStorage.removeItem('firstLogin')
+            
             history.push('/Student-Home')
             
+
 
 
 
@@ -104,6 +108,7 @@ function STDLogin() {
                &nbsp;
               
             </div>
+
 
 
         </form>

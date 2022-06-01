@@ -36,6 +36,7 @@ function Login() {
 
             localStorage.setItem('firstLogin', true)
             dispatch(dispatchLogin())
+            localStorage.removeItem('firstLogin1')
             history.push('/staffhome')
 
         }catch(err) {
