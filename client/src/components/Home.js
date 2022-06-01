@@ -57,6 +57,12 @@ All Staff Members
      
    </button> </Link>
 
+   <Link style={{textDecoration:"none"}} to={`/stdall`}> <button className="btn"  style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>
+All Student 
+ 
+     
+   </button> </Link>
+
   <h1 className="text-center p-1 pb-2 mt-2"  style={{color: 'white',backgroundColor:'#C23A34' }}>Assignment Options</h1>
   
   <div> <Link style={{textDecoration:"none"}} to={`/createassi/`}> <button className="btn"  style={{textDecoration:"none" ,textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}}>

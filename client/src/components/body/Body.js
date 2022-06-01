@@ -91,6 +91,7 @@ import TopicRegistration from '../topics/TopicsRegistration'
 import UserTopics from '../topics/UserTopics'
 import GetAllTopics from '../topics/GetAllTopics'
 import TopicStatus from '../topics/TopicStatus'
+import Allstd from '../Student/allSTD'
 
 
 
@@ -194,7 +195,7 @@ const {isLogged, isAdmin, isSuper,isCoSuper, isPanel,isSTD} = auth
             <Route path='/topicstatus/:id' component={isAdmin  || isPanel  ? TopicStatus : Login} exact/>
 
 
-           
+            <Route path='/stdall' component={Allstd} exact/>
             
              
         </Switch>
