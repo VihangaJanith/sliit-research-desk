@@ -60,6 +60,7 @@ function CoSupervisorlist() {
     
      
     </div>
+
     <div className="profile_page">
  
 
@@ -80,10 +81,10 @@ function CoSupervisorlist() {
 
 
 
+<div className='container1 p-2'>
 
 
-
-<div className="col-md-8 card me-3 mt-1 mb-3 p-2" key={cr.id}>
+<div className="card3 p-2" key={cr.id}>
 
 
   
@@ -91,33 +92,45 @@ function CoSupervisorlist() {
   
 
 
-<h3 scope="row">
+<h3 className="col-md card me-3 mt-1 mb-3 p-2" scope="row">
 
  {cr.name} </h3> 
     
-  <p scope="row"> {cr._id} </p> 
  
+  <span class="tag tag-teal">Co-Supervisor</span>
 
 <p scope="row"> Email : {cr.email}</p>
 
- <p scope="row"> Area of experties : {cr.job}</p>
+<a  >Interested Fields :
+   <br /> 
+
+<a style={{ color: 'white' , fontSize:"15px", textTransform:"uppercase"}} className="badge badge-pill badge-dark"  >
+  {cr.job.replace(/,/g, ' | ')}
+{/* {
+  cr.job  
+    ? cr.job.split(",").map(a => <p> {a} </p>) 
+    : ""
+} */}
+</a>
+
+</a>
 <div className="row">
 
 </div>
 
-<div  className="row mt-2">
+<div  className="row mt-2 mb-5">
   
-  <Link   to={`/requestcosupervisor/${cr._id}/${cr.name}`}>
+  <Link  className='mb-3'  to={`/requestcosupervisor/${cr._id}/${cr.name}`}>
   <button className="btn btn-warning">                          
- Request Supervisors
+ Request Co-Supervisor
   </button>
   </Link>
   </div>
   </div>
 
 
-  <div className="col">
-<div  style={{marginTop:"-190px"}}  className="col-left">
+  <div className="col mb-3">
+<div  style={{marginTop:"-230px" , marginLeft:'300px'}}  className="col-left">
 
 
 <div className="avatar">
@@ -129,6 +142,7 @@ function CoSupervisorlist() {
 </div>
 
  </div>
+  </div>
   : ""
 }
                                 </div>

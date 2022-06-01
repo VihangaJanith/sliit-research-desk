@@ -62,7 +62,13 @@ function GetMyGroups({match}) {
             
             <div>
             <form className='login_page'>
-                <h2>Group Registration Form</h2>
+                <h6>Group ID</h6>
+                <input
+                    value={cr.groupid}
+                    type="text"
+                    name="groupname"
+                    disabled
+                    required />
                 <h6>Student ID of Member 1</h6>
 
                 <input
@@ -100,11 +106,7 @@ function GetMyGroups({match}) {
                     name="groupname"
                     required />
 
-<input
-                    value={cr.groupid}
-                    type="text"
-                    name="groupname"
-                    required />
+
 
                 <br />
                 <Link to={`/groups/${cr._id}`}    > 

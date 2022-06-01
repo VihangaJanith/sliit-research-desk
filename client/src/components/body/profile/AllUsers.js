@@ -7,7 +7,7 @@ import {showErrMsg, showSuccessMsg} from '../../utils/notification/Notification'
 import { use } from 'express/lib/application'
 
 import {fetchAllUsers, dispatchGetAllUsers} from '../../../redux/actions/usersActions'
-
+import Swal from 'sweetalert2'
 
 
 
@@ -15,11 +15,12 @@ const initialState = {
   name: '',
   password: '',
   cf_password: '',
+  job: '',
   err: '',
   success: ''
 }
 
-function Panel() {
+function AllUsers() {
   const auth = useSelector(state => state.auth)
   const token = useSelector(state => state.token)
   const users = useSelector(state => state.users)
@@ -27,7 +28,7 @@ function Panel() {
   const {user, isAdmin} = auth
   const [data, setData] = useState(initialState)
 
-  const {name, password, cf_password, err, success} = data
+  const {name, password, cf_password,job, err, success} = data
   const [avatar, setAvatar] = useState(false)
   const [loading, setLoading] = useState(false)
   const [callback, setCallback] = useState(false)
@@ -50,6 +51,10 @@ function Panel() {
 
 
 
+
+
+
+
   
   const handleDelete = async (id) => {
     try {
@@ -69,6 +74,9 @@ function Panel() {
 
   }
 
+ 
+  
+
 
 
   return (
@@ -79,12 +87,12 @@ function Panel() {
       {loading && <h3> loading....</h3>}
     </div>
     <div className="profile_page">
-          
+           
 
 
 
             <div className="col-right">
-              <h2>{isAdmin ? "Users" : "MyOrders" }</h2>
+              <h2>All Users List</h2>
               
 
               <div style={{overflowX:"auto"}} className="user-list">
@@ -94,8 +102,8 @@ function Panel() {
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>User Role</th>
-                    <th>Panel Member</th>
+                    <th>Role</th>
+                    <th>Admin</th>
                     <th>Action</th>
 
                   </tr>
@@ -105,7 +113,6 @@ function Panel() {
                     users.map(user => (
                       
                       <tr key={user._id}>
-                        
                            <td>{user._id}</td>
                           <td>{user.name}</td>
                           <td>{user.email}</td>
@@ -128,17 +135,15 @@ function Panel() {
                             </td>
                           <td>
                             {
-                              user.roledesc === 1
+                              user.role === 1
                               ? <i className="fa fa-check" title="Admin"></i>
                               : <i className="fa fa-times" title="User"></i>
                             }
                           </td>
                           <td>
-                            <Link to={`/panel_edit/${user._id}`}>
-                              <i className="fa fa-edit" title="Edit"></i>
-                            </Link>
-                            <i className="fa fa-trash" title="Delete"
-                            onClick={()=> handleDelete(user._id)}></i>
+                         
+                            <button className="btn btn-danger"
+                            onClick={()=> handleDelete(user._id)}> Block Staff Member</button>
                           </td>
                           
                         </tr>
@@ -164,4 +169,4 @@ function Panel() {
   )
 }
 
-export default Panel
+export default AllUsers

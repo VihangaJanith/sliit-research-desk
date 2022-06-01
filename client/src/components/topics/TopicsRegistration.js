@@ -64,7 +64,7 @@ const res = await fetch('http://localhost:8000/topics',  {
 return (
 <div  className="assignment_page"style={{maxWidth:"500", margin:"auto"}}>
 
-    <h1>Topic Reegistration</h1>
+    <h1>Topic Registration</h1>
 
 
 

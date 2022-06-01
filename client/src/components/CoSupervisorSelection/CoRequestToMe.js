@@ -43,7 +43,7 @@ function CoRequestToMe({match}) {
 
   return (
     <div>
-        <h1>Requests to Me</h1>
+        <h1>Student Requests to Co-Supervisor --> ({user.name})</h1>
       
 
 {crs?.map((cr , index) => (

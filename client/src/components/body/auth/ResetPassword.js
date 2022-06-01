@@ -53,8 +53,8 @@ function ResetPassword() {
 
 
   return (
-     <div className="fg_pass">
-         <h2>Reset Password</h2>
+     <div className="login_page">
+         <h2  >Reset Password</h2>
 
          <div className="row">
              
@@ -65,16 +65,16 @@ function ResetPassword() {
 
             <div className="row">
 
-            <label  htmlFor="password"> Enter Password </label>
-             <input type="password" name="password" id="password" placeholder="password "value={password} 
+            <label style={{marginLeft:'-10px'}}  htmlFor="password"> Enter Password </label>
+             <input type="password" name="password" id="password" placeholder="Password "value={password} 
             onChange={handeChangeInput}/> 
 
-            <label  htmlFor="cf_password"> confirm Password </label>
-             <input type="password" name="cf_password" id="cf_password" placeholder="cf_password "value={cf_password} 
+            <label style={{marginLeft:'-10px'}}   htmlFor="cf_password"> Confirm Password </label>
+             <input type="password" name="cf_password" id="cf_password" placeholder="Confirm Password "value={cf_password} 
             onChange={handeChangeInput}/> 
 
 
-            <button onClick={hadleResetPass}>Verify Your Password</button>
+            <button style={{textDecoration:"none" , marginLeft:"0px", width:"100%" , textTransform:"uppercase", letterSpacing: "1.5px",color: 'white', backgroundColor:'#E2A500' , padding: '10px ' , borderRadius: '5px'}} onClick={hadleResetPass}>Verify Your Password</button>
 
             </div>
          </div>

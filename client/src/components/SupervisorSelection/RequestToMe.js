@@ -43,7 +43,7 @@ function RequestToMe({match}) {
 
   return (
     <div>
-        <h1>Requests to me</h1>
+        <h1>Students Requests for Supervisor --> ({user.name})</h1>
       
 
 {crs?.map((cr , index) => (
@@ -74,26 +74,26 @@ function RequestToMe({match}) {
                     </p>
 
                     <Link   to={`/requeststatus/${cr._id}`}>
-                            <button className="btn btn-warning">                          
+                            <button className="btn btn-danger mr-2">                          
                            Approve or reject
                             </button>
                             </Link>
 
                             
                     <Link   to={`/createchat/${cr._id}/${cr.studentname}`}>
-                            <button className="btn btn-warning">                          
+                            <button className="btn btn-warning  mr-2">                          
                            Chat with Student
                             </button>
                             </Link>
 
                             <Link   to={`/chatsstudent/${cr._id}`}>
-                            <button className="btn btn-warning">                          
+                            <button className="btn btn-secondary  mr-2">                          
                             Sent Messages
                             </button>
                             </Link>
 
                             <Link   to={`/chats/${cr.superid}/${cr.studentid}`}>
-                            <button className="btn btn-warning">                          
+                            <button className="btn btn-secondary">                          
                            Inbox
                             </button>
                             </Link>

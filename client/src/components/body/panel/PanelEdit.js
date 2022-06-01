@@ -63,8 +63,7 @@ function PanelEdit() {
 
   return (
     <div className="profile_page">
-        {err && showErrMsg(err)}
-      {success && showSuccessMsg(success)}
+        
         
         <div className="row">  
             <button onClick={() => history.goBack()} className="go_back">
@@ -74,6 +73,8 @@ function PanelEdit() {
 
 
              <div className="col-left">
+             {err && showErrMsg(err)}
+      {success && showSuccessMsg(success)}
                <h2>Add or Remove Panel Member</h2>
                <div>
       

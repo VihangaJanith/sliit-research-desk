@@ -4,11 +4,19 @@ import { Link } from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 import {Button} from 'react-bootstrap'
+import { useSelector } from 'react-redux';
 
 
 
 
 const GetAllAssignments = () => {
+  const auth = useSelector(state => state.auth)
+  
+
+  const {user, isAdmin, isSTD} = auth
+
+
+
 const [crs, setCrs] = useState();
 const [users, setUsers] = useState();
 
@@ -52,7 +60,7 @@ const handleDelete = async(id) => {
   return (
     <div >
       
-<h1>All Assignments By admin </h1>
+<h1>All Assignments </h1>
       
          {crs?.map((cr , index) => (
             
@@ -65,7 +73,7 @@ const handleDelete = async(id) => {
                    
                     
                    <h2 scope="row"> {cr.name} </h2> 
-                   {cr.userid}
+                
                   
                    <CloudinaryContext cloudName="demo">
                      
@@ -85,12 +93,15 @@ const handleDelete = async(id) => {
                        <p>Created By : {cr.author}</p>
                       
                       
+                      {isAdmin ? 
+                      <div>
                        <Button variant="success">
                         <a href={`/editassi/${cr._id}`}  style={{textDecoration: 'none', color:'white'}} > Edit  </a>
                          </Button>{' '}
 
                          <button className="btn btn-danger" onClick={()=>{handleDelete(cr._id)}}>Delete Assignment</button>
-
+                              </div>
+                              : ''}
                 
                        
                        </div>

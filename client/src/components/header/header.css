@@ -3,7 +3,15 @@
 header{
     width: 100%;
     min-width: 100px;
-    background : #3A454B;
+    /* background: #3A454B; */
+
+    /* background: linear-gradient(90deg, #E2A500 20%, #3A454B 80%); */
+    /* background: linear-gradient(to left, red 20%, blue 80%) no-repeat;
+background-size: calc(100%); */
+border-radius: 4px;
+
+background: linear-gradient(90deg, #E2A500 35%, #3A454B 35%);
+
     display:flex;
     justify-content: space-between;
     align-items: center;
