@@ -84,7 +84,7 @@ function Panel() {
 
 
             <div className="col-right">
-              <h2>{isAdmin ? "Users" : "MyOrders" }</h2>
+              <h2>Panel Selection</h2>
               
 
               <div style={{overflowX:"auto"}} className="user-list">
@@ -135,10 +135,9 @@ function Panel() {
                           </td>
                           <td>
                             <Link to={`/panel_edit/${user._id}`}>
-                              <i className="fa fa-edit" title="Edit"></i>
+                              <button className="btn btn-success">Panel Selection</button>
                             </Link>
-                            <i className="fa fa-trash" title="Delete"
-                            onClick={()=> handleDelete(user._id)}></i>
+                          
                           </td>
                           
                         </tr>

@@ -92,14 +92,16 @@ function AllUsers() {
 
 
             <div className="col-right">
-              <h2>All Users List</h2>
+              <h2>All Staff Members List</h2>
               
 
               <div style={{overflowX:"auto"}} className="user-list">
               <table className="customers">
                 <thead>
                   <tr>
+                   
                     <th>ID</th>
+                    <th>Photo</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Role</th>
@@ -110,11 +112,15 @@ function AllUsers() {
                 </thead>
                 <tbody>
                   {
-                    users.map(user => (
+                    users.map((user,index) => (
                       
                       <tr key={user._id}>
-                           <td>{user._id}</td>
-                          <td>{user.name}</td>
+                       
+                           <td>{index+1})&nbsp;{user._id}</td>
+                           <td style={{ textAlign: "center" }}><img src={user.avatar}
+                            style={{width: 60, height: 60, borderRadius: '50%', textAlign: 'center'}}
+                           alt="avatar" className="avatar"/></td>
+                          <td><b>{user.name}</b></td>
                           <td>{user.email}</td>
                           <td>{
                               user.role === 1
@@ -133,17 +139,27 @@ function AllUsers() {
                               ? <h2><span class="badge badge-info">Co-Supervisor</span></h2>: ""
                              }
                             </td>
-                          <td>
+                          <td style={{ textAlign: "center" }}>
                             {
                               user.role === 1
-                              ? <i className="fa fa-check" title="Admin"></i>
-                              : <i className="fa fa-times" title="User"></i>
+
+                              ?
+                               <i  className="fa fa-check" title="Admin"></i>
+                              : 
+                               <Link className=""to={`/edit_user/${user._id}`}>
+                                <button className="btn btn-warning">Make Admin</button>
+                              </Link> 
                             }
                           </td>
                           <td>
-                         
-                            <button className="btn btn-danger"
+                         {user.role !== 1
+                         ?
+                        <button className="btn btn-danger"
                             onClick={()=> handleDelete(user._id)}> Block Staff Member</button>
+                             : ""
+                         }
+                          
+                            
                           </td>
                           
                         </tr>
