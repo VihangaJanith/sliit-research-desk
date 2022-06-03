@@ -82,7 +82,7 @@ function EditUser() {
               <div className="form-froup">
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" id="name" defaultValue={editUser.name}
-                placeholder="Your Name" disabled/>
+                placeholder="Your Name" />
               </div>
               <div className="form-froup">
                 <label htmlFor="email">Email</label>

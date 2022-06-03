@@ -70,6 +70,9 @@ cursor: pointer;
   width: 1040px;
   justify-content: space-evenly;
   flex-wrap: wrap;
+
+
+  
 }
 .card2 {
   margin: 10px;
@@ -143,6 +146,116 @@ cursor: pointer;
 .user-info small {
   color: #545d7a;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.containerR {
+  display: block;
+  width: 100%;
+}
+.cardR {
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 370px;
+  float: left;
+  
+
+  
+  /*setting width for each and every card element as well as -10px for removing the margin width for 5 elements*/
+
+}
+.cardR-header img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+ 
+
+  
+}
+.cardR-header {
+  background-color: lightgrey;
+
+
+  
+}
+.cardR-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 250px;
+  
+}
+
+.tagR {
+  background: #cccccc;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 0;
+  color: #fff;
+  padding: 2px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.tagR-teal {
+  background-color: #47bcd4;
+}
+.tagR-purple {
+  background-color: #5e76bf;
+}
+.tagR-pink {
+  background-color: #cd5b9f;
+}
+
+.card-body p {
+  font-size: 13px;
+  margin: 0 0 40px;
+}
+.userR {
+  display: flex;
+  margin-top: auto;
+}
+
+.userR img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.userR-info h5 {
+  margin: 0;
+}
+.userR-info small {
+  color: #545d7a;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

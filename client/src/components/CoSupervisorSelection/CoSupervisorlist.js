@@ -56,6 +56,69 @@ function CoSupervisorlist() {
     <div>
     <h1 className="text-center p-1 pb-2 mt-2"  style={{color: 'white',backgroundColor:'#C23A34' }}> Co-Supervisors</h1>
 
+    {
+                    crs?.map((cr , index) => (
+                      <div>
+                        {cr.role===3?
+                        <div >
+                       
+                       <div class="containerR">
+  <div class="cardR">
+    <div class="cardR-header" style={{textAlign: 'center'}}>
+      <img className='p-2'
+      
+      src={cr.avatar} alt="rover" />
+    
+    </div>
+    <div class="cardR-body">
+    <span class="tag tag-teal">Co-Supervisor</span>
+      <h3 style={{textTransform:"uppercase"}}>
+        {cr.name}
+      </h3>
+      <a  >Interested Fields :
+
+
+<div>
+<p  style={{ color: 'white' , fontSize:"15px", textTransform:"uppercase", overflowx: 'scroll' }} className="badge badge-pill badge-dark"  >
+  {cr.job.replace(/,/g, ' | ')}
+
+</p>
+</div>
+
+</a>
+<p className='mt-2' scope="row"> Email : &nbsp;{cr.email}</p>
+
+    
+      <div class="userR">
+      <Link  className='mb-3'  to={`/requestcosupervisor/${cr._id}/${cr.name}`}>
+  <button className="btn btn-warning">                          
+ Request Co-Supervisor
+  </button>
+  </Link>
+      </div>
+    </div>
+  </div>
+  </div>
+
+ 
+      
+
+
+
+
+
+
+
+
+
+
+                          </div>
+                          :''}
+                          
+
+                      </div>
+
+                    ))}
 
     
      
@@ -72,84 +135,6 @@ function CoSupervisorlist() {
 
               <div style={{overflowX:"auto"}} className="user-list">
 
-                  {
-                    crs?.map((cr , index) => (
-                        <div className="user-list-item" key={cr.id}>
-                            <div className="user-list-item-header">
-                            { cr.role === 3 ?
-
-
-
-
-<div className='container1 p-2'>
-
-
-<div className="card3 p-2" key={cr.id}>
-
-
-  
-  <div className="col">
-  
-
-
-<h3 className="col-md card me-3 mt-1 mb-3 p-2" scope="row">
-
- {cr.name} </h3> 
-    
- 
-  <span class="tag tag-teal">Co-Supervisor</span>
-
-<p scope="row"> Email : {cr.email}</p>
-
-<a  >Interested Fields :
-   <br /> 
-
-<a style={{ color: 'white' , fontSize:"15px", textTransform:"uppercase"}} className="badge badge-pill badge-dark"  >
-  {cr.job.replace(/,/g, ' | ')}
-{/* {
-  cr.job  
-    ? cr.job.split(",").map(a => <p> {a} </p>) 
-    : ""
-} */}
-</a>
-
-</a>
-<div className="row">
-
-</div>
-
-<div  className="row mt-2 mb-5">
-  
-  <Link  className='mb-3'  to={`/requestcosupervisor/${cr._id}/${cr.name}`}>
-  <button className="btn btn-warning">                          
- Request Co-Supervisor
-  </button>
-  </Link>
-  </div>
-  </div>
-
-
-  <div className="col mb-3">
-<div  style={{marginTop:"-230px" , marginLeft:'300px'}}  className="col-left">
-
-
-<div className="avatar">
-<img src={cr.avatar} alt="" />
-
-
-</div>
-</div>
-</div>
-
- </div>
-  </div>
-  : ""
-}
-                                </div>
-                                </div>
-
-                  ))}
-             
              
                 
              
